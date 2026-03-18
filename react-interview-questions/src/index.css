@@ -1,0 +1,308 @@
+/* Context Demo base styles (kept simple, no extra deps) */
+
+:root {
+  --cd-bg: #0b1220;
+  --cd-surface: #111a2e;
+  --cd-text: #e7ecf7;
+  --cd-muted: rgba(231, 236, 247, 0.72);
+  --cd-border: rgba(231, 236, 247, 0.14);
+  --cd-primary: #6ea8fe;
+  --cd-danger: #ff6b6b;
+  --cd-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+:root[data-theme='light'] {
+  --cd-bg: #f7f8fb;
+  --cd-surface: #ffffff;
+  --cd-text: #111827;
+  --cd-muted: rgba(17, 24, 39, 0.65);
+  --cd-border: rgba(17, 24, 39, 0.12);
+  --cd-primary: #2563eb;
+  --cd-danger: #dc2626;
+  --cd-shadow: 0 10px 30px rgba(17, 24, 39, 0.12);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, 'Apple Color Emoji',
+    'Segoe UI Emoji';
+  background: var(--cd-bg);
+  color: var(--cd-text);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.cd-container {
+  width: min(1100px, calc(100% - 32px));
+  margin: 0 auto;
+}
+
+.cd-appShell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.cd-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: color-mix(in srgb, var(--cd-surface) 92%, transparent);
+  border-bottom: 1px solid var(--cd-border);
+  backdrop-filter: blur(10px);
+}
+
+.cd-headerRow {
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.cd-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 190px;
+}
+
+.cd-brandLink {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+
+.cd-badge {
+  font-size: 12px;
+  padding: 3px 8px;
+  border: 1px solid var(--cd-border);
+  border-radius: 999px;
+  color: var(--cd-muted);
+}
+
+.cd-nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  justify-content: center;
+}
+
+.cd-navLink {
+  padding: 8px 10px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  color: var(--cd-muted);
+}
+
+.cd-navLink.isActive {
+  color: var(--cd-text);
+  border-color: var(--cd-border);
+  background: color-mix(in srgb, var(--cd-surface) 80%, transparent);
+}
+
+.cd-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-end;
+  min-width: 360px;
+}
+
+.cd-login {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cd-input {
+  width: 140px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--cd-border);
+  background: color-mix(in srgb, var(--cd-surface) 80%, transparent);
+  color: var(--cd-text);
+  outline: none;
+}
+
+.cd-input::placeholder {
+  color: color-mix(in srgb, var(--cd-muted) 80%, transparent);
+}
+
+.cd-btn {
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--cd-border);
+  background: var(--cd-primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.cd-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.cd-btnGhost {
+  background: color-mix(in srgb, var(--cd-surface) 85%, transparent);
+  color: var(--cd-text);
+}
+
+.cd-btnDanger {
+  background: var(--cd-danger);
+  color: white;
+}
+
+.cd-main {
+  padding: 28px 0 40px;
+  flex: 1;
+}
+
+.cd-footer {
+  border-top: 1px solid var(--cd-border);
+  padding: 14px 0;
+  color: var(--cd-muted);
+}
+
+.cd-footerRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.cd-muted {
+  color: var(--cd-muted);
+}
+
+.cd-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.cd-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cd-rowBetween {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cd-h2 {
+  font-size: 22px;
+  margin: 0;
+}
+
+.cd-card {
+  border: 1px solid var(--cd-border);
+  border-radius: 16px;
+  padding: 16px;
+  background: var(--cd-surface);
+  box-shadow: var(--cd-shadow);
+}
+
+.cd-grid2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cd-gridCards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.cd-title {
+  font-weight: 700;
+}
+
+.cd-label {
+  font-size: 12px;
+  color: var(--cd-muted);
+}
+
+.cd-value {
+  margin-top: 4px;
+}
+
+.cd-pill {
+  padding: 8px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--cd-border);
+  background: color-mix(in srgb, var(--cd-surface) 86%, transparent);
+}
+
+.cd-divider {
+  height: 1px;
+  background: var(--cd-border);
+  margin: 2px 0;
+}
+
+.cd-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cd-listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--cd-border);
+  border-radius: 12px;
+}
+
+@media (max-width: 900px) {
+  .cd-actions {
+    min-width: unset;
+  }
+}
+
+@media (max-width: 720px) {
+  .cd-headerRow {
+    height: auto;
+    padding: 12px 0;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .cd-nav {
+    justify-content: flex-start;
+  }
+
+  .cd-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .cd-grid2,
+  .cd-gridCards {
+    grid-template-columns: 1fr;
+  }
+}
+
